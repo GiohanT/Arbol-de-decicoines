@@ -11,8 +11,9 @@ datos = pd.read_csv('./Data_set/dataset_heladas_suelo.csv')
 datos['Helada de Suelo (Sí/No)'] = datos['Helada de Suelo (Sí/No)'].map({'No': 0, 'Si': 1})
 
 # Dividir los datos en características (X) y etiquetas (y)
-X = datos.drop('Helada de Suelo (Sí/No)', axis=1)
-y = datos['Helada de Suelo (Sí/No)']
+X = datos[['Humedad del Suelo (%)', 'Temperatura de la Zona (°C)']]  # Seleccionar solo las columnas de características
+y = datos['Helada de Suelo (Sí/No)']  # Seleccionar la columna de etiquetas
+
 
 # Dividir los datos en conjuntos de entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -30,4 +31,4 @@ predicciones = modelo.predict(X_test)
 precision = accuracy_score(y_test, predicciones)
 print("Precisión del modelo:", precision)
 
-joblib.dump(modelo, 'modelo_arbol_decision.pkl',protocol=4)
+joblib.dump(modelo, 'modelo_arbol_decision2.pkl',protocol=4)

@@ -3,7 +3,7 @@ from sklearn.tree import DecisionTreeClassifier
 import joblib
 
 # Cargar el modelo entrenado
-modelo = joblib.load('./Modelos AI/modelo_arbol_decision.pkl')
+modelo = joblib.load('./Modelos AI/modelo_arbol_decision2.pkl')
 
 # Cargar los datos de prueba desde el archivo CSV
 datos_prueba = pd.read_csv('./Data_set/Prueba.csv')
@@ -19,4 +19,4 @@ datos_prueba['predicciones'] = predicciones
 #datos_prueba['predicciones'] = datos_prueba['predicciones'].astype(str({ '0': 'no', '1': 'si'}))
 
 # Guardar los datos con predicciones en un nuevo archivo CSV
-datos_prueba.to_csv('Resultados.csv', index=False)
+datos_prueba.to_csv('Resultados2.csv', index=False)
